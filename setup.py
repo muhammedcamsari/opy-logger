@@ -11,6 +11,7 @@ setuptools.setup(
     author_email="Muhammedcamsari@icloud.com",
     description="Used for simple log output.",
     long_description=long_description,
+    url="https://github.com/muhammedcamsari/opy-logger",
     long_description_content_type="text/markdown",
     keywords=['log', 'logger', 'simple'],
     classifiers=[

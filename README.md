@@ -6,7 +6,7 @@ OpenSSL-GTK uygulamasında kullanmak üzere geliştirilmiştir. Bu sürümde ç�
 
 Aşağıdaki komutu uçbirimde çalıştırarak kurulumu yapabilirsiniz.
 
-	pip3 install opylogger
+	pip install opy-logger
 
 ## Opy-Logger Kullanımı
 
