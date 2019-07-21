@@ -1,6 +1,6 @@
 # Opy-Logger
 
-OpenSSL-GTK uygulamasında kullanmak üzere geliştirilmiştir. Bu sürümde çıktılar log dosyasına kayıt edilmez. Şimdilik planlanan bir özelliktir.
+OpenSSL-GTK uygulamasında kullanmak üzere geliştirilmiştir. Bu sürümde çıktılar log dosyasına kayıt edilmez. Bu planlanan bir özelliktir.
 
 ## Opy-Logger Kurulumu
 
@@ -215,3 +215,30 @@ Ya da
 	>>> opylogger.info('Bilgiyi verdim', category='DOSYA', date=True)
 	2019-07-10 17:46:43.486754 [INFO] [DOSYA] Bilgiyi verdim
 
+
+### output()
+Komut çıktılarını yazdırmak için kullanılan fonksiyondur.
+
+
+	output(message, category=None, date=True)
+
+ - message: Hata mesajı
+ - category: Hata mesajı ile ilgili kategori
+ - date: Çıktıda tarih ve saatin görünmesi
+
+Kullanımı aşağıdaki gibidir.
+
+	opylogger.output('Çıktı')
+
+Ya da
+
+	opylogger.output('Komut çıktısı', category='KOMUT', date=True)
+
+Ya da
+
+	opylogger.output('Kod çıktısı', category='KOMUT', date=True)
+
+Çıktısı aşağıdaki gibidir.
+
+	>>> opylogger.output('Bilgiyi verdim', category='KOMUT', date=True)
+	2019-07-10 17:48:43.486754 [OUTPUT] [KOMUT] Komut çıktısı buraya gelir

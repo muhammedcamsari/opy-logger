@@ -8,7 +8,7 @@ __appname__ = "OPY-Logger"
 __definition__ = "Used for simple log output."
 __copyright__ = "Copyright (c) 2019 " + __author__
 __license__ = "MIT"
-__version__ = "1.0"
+__version__ = "1.1"
 __status__ = "Beta"
 __email__ = "muhammedcamsari@icloud.com"
 __pgp__ = 'F294 1D36 A8C8 101B EEB0  16A7 B260 DBA5 2DAA 962A'
@@ -17,6 +17,7 @@ Green = '\33[92m'
 Red = '\33[31m'
 Blue = '\33[34m'
 Yellow = '\33[33m'
+Pink = '\33[35m'
 BoldRed = '\033[1m' + '\33[31m'
 Grey = '\33[90m'
 NoColor = '\033[0m'
@@ -137,3 +138,18 @@ def critical(message, category=None, date=True):
 
 		elif date == False: # Tarih aktif değilse
 			print (BoldRed + '[CRITICAL]' + NoColor, '[%s]' % category, message)
+
+def output(message, category=None, date=True):
+	if category == None: # Kategori yoksa
+		if date == True: # Tarih Aktifse
+			print (datetime.datetime.now(), Pink + '[OUTPUT]' + NoColor, message)
+
+		elif date == False: # Tarih aktif değilse
+			print (Pink + '[OUTPUT]' + NoColor, message)
+
+	else: # Kategori varsa
+		if date == True: # Tarih Aktifse
+			print (datetime.datetime.now(), Pink + '[OUTPUT]' + NoColor, '[%s]' % category, message)
+
+		elif date == False: # Tarih aktif değilse
+			print (Pink + '[OUTPUT]' + NoColor, '[%s]' % category, message)
