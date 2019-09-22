@@ -1,244 +1,34 @@
-# Opy-Logger
+# Opy-logger
 
-OpenSSL-GTK uygulamasında kullanmak üzere geliştirilmiştir. Bu sürümde çıktılar log dosyasına kayıt edilmez. Bu planlanan bir özelliktir.
+Opy-logger, uygulamalar için günlük kaydı tutmanıza imkan tanıyan Python kütüphanesidir.
 
-## Opy-Logger Kurulumu
 
-Aşağıdaki komutu uçbirimde çalıştırarak kurulumu yapabilirsiniz.
+# Kurulumu
+
+Opy-logger kurulumu için pip deposunu kullanabilirsiniz. 
 
 	pip install opy-logger
 
-## Opy-Logger Kullanımı
 
-Aşağıdaki komut ile modül çağırılır.
+# Kullanımı
 
-	import opylogger 
+Opy-logger kullanımı için Wiki sayfasını inceleyebilirsiniz. Size en iyi bilgiyi [Wiki](https://github.com/muhammedcamsari/opy-logger/wiki) sunar!
 
-### init() 
 
-Bu fonksiyon, geliştirilen uygulama hakkında bilgi vermek için kullanılır. 
+# 2.x sürümündeki değişiklikler
 
-	init(name=None, version=None, author=None, url=None)
+Bu sürümde, günlük kaydı tutma özelliğini ekledim. Artık çıktılar dosyaya yazılabilecek. 1.x serisi, bu özelliği desteklemiyordu.
 
- - name: Uygulamanın Adı
- - version: Uygulamanın Sürümü
- - author: Uygulamanın yazarı/geliştiricisi
- - url: Uygulamanın web sitesi
+Opy-logger, bu sürüm itibariyle yerelleştirmeyi destekliyor. Bu yüzden çıktı kategorilerindeki metinleri türkçeleştirdim. İngilizce, Fransızca, Almanca ve Rusça dil desteği yakında eklenecek. 
 
-Kullanımı aşağıdaki gibidir.
+init() argümanını bu sürümde kaldırdım, yerine appinfo() argümanını ekledim. Artık kütüphaneniz yada uygulamanız hakkında bilgi vermek istediğinizde appinfo() kullanmalısınız. Bu argümanı kullanırken satır tipini belirlemelisiniz. (satır ve boşluk destekler) Üstelik E-Mail, lisans gibi bilgileri de destekliyor.
 
- 	opylogger.init('X Uygulaması', '2.13.1', 'XX', 'github.com/xxx')
+Artık loglardaki tarih görünürlüğünü tek bir argüman ile belirleyebiliyorsunuz. Satır sonuna date=False ifadesini eklemek zorunda değilsiniz.
 
- Ya da
+Renklendirme seçeneğini de atlamadım. Artık tek bir argüman ile renklendirmeyi kapatabiliyorsunuz.
 
- 	opylogger.init(name='X Uygulaması', version='2.13.1', author='XX', url='github.com/xxx')
 
-Çıktısı aşağıdaki gibidir.
 
-	>>> opylogger.init('OpyLogger', '1.0', 'Muhammed Çamsarı', 'github.com/muhammedcamsari')
-	--- App Info -----------------------
-	Name: OpyLogger Version: 1.0 Author: Muhammed Çamsarı Website: github.com/muhammedcamsari
+# Destek Ver
 
-### sysinfo()
-
- Bu fonksiyon, sistem hakkında bilgi verir. Herhangi bir argüman gerektirmez.
-
- 	sysinfo()
-
- Kullanımı aşağıdaki gibidir.
-
- 	opylogger.sysinfo()
-
- Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.sysinfo()
-	--- System Info --------------------
-	OPY-Logger Version: 1.0
-	System: Darwin
-	Machine: x86_64
-	Python: 3.7.3
-	Compiler: Clang 10.0.1 (clang-1001.0.46.3)
-
-
-### moduleinfo()
-
-Opy-Logger modulü ile ilgili bilgiler verir.
-
-	moduleinfo()
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.moduleinfo()
-	--- Module Info --------------------
-	Name: OPY-Logger
-	Version: 1.0Beta
-	Author: Muhammed Çamsarı
-	License: MIT License
-	Support: muhammedcamsari@icloud.com
-	Copyright (c) 2019 Muhammed Çamsarı
-
-### error()
-
-Hata mesajlarını belirtmek için kullanılan fonksiyondur.
-
-	error(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-
-	opylogger.error('Dosya okunamadı')
-
-Ya da 
-
-	opylogger.error('Dosya okunamadı', 'DOSYA', False)
-
-Ya da
-
-	opylogger.error(message='Dosya Okunamadı', category='DOSYA', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.error(message='Dosya Okunamadı', category='DOSYA', date=True)
-	2019-07-10 17:32:58.794032 [ERROR] [DOSYA] Dosya Okunamadı
-
-
-### critical()
-
-Kritik uyarıları belirtmek için kullanılan fonksiyondur.
-
-	critical(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-	
-	opylogger.critical('Dosya yok?')
-
-Ya da
-
-	opylogger.critical('Dosya yok?', 'DOSYA', False)
-
-Ya da
-
-	opylogger.critical(message='Dosya yok?', category='DOSYA', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.critical(message='Dosya yok?', category='DOSYA', date=True)
-	2019-07-10 17:38:37.831036 [CRITICAL] [DOSYA] Dosya yok?
-
-### debug()
-
-Hata ayıklama mesajlarını belirtmek için kullanılan fonksiyondur.
-
-	debug(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-
-	opylogger.debug('Dosya varmış yanlış yere bakılmış')
-
-Ya da
-
-	opylogger.debug('Dosya varmış yanlış yere bakılmış', 'DOSYA', False)
-
-Ya da
-
-	opylogger.debug('Dosya varmış yanlış yere bakılmış', category='DOSYA', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.debug('Dosya varmış yanlış yere bakılmış', category='DOSYA', date=True)
-	2019-07-10 17:41:48.251486 [DEBUG] [DOSYA] Dosya varmış yanlış yere bakılmış
-
-
-### warning()
-
-Uyarı mesajlarını belirtmek için kullanılan fonksiyondur.
-
-	warning(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-
-	opylogger.warning('Dosya kaybolmuş olabilir?!')
-
-Ya da
-
-	opylogger.warning('Dosya kaybolmuş olabilir?!', 'DOSYA', False)
-
-Ya da
-
-	opylogger.warning('Dosya kaybolmuş olabilir?!', category='DOSYA', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.warning('Dosya kaybolmuş olabilir?!', category='DOSYA', date=True)
-	2019-07-10 17:44:40.784462 [WARNING] [DOSYA] Dosya kaybolmuş olabilir?!
-
-
-### info()
-Bilgi mesajları için kullanılan fonksiyondur.
-
-
-	info(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-
-	opylogger.info('Bilgiyi verdim')
-
-Ya da
-
-	opylogger.info('Bilgiyi verdim', category='DOSYA', date=True)
-
-Ya da
-
-	opylogger.info('Bilgiyi verdim', category='DOSYA', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.info('Bilgiyi verdim', category='DOSYA', date=True)
-	2019-07-10 17:46:43.486754 [INFO] [DOSYA] Bilgiyi verdim
-
-
-### output()
-Komut çıktılarını yazdırmak için kullanılan fonksiyondur.
-
-
-	output(message, category=None, date=True)
-
- - message: Hata mesajı
- - category: Hata mesajı ile ilgili kategori
- - date: Çıktıda tarih ve saatin görünmesi
-
-Kullanımı aşağıdaki gibidir.
-
-	opylogger.output('Çıktı')
-
-Ya da
-
-	opylogger.output('Komut çıktısı', category='KOMUT', date=True)
-
-Ya da
-
-	opylogger.output('Kod çıktısı', category='KOMUT', date=True)
-
-Çıktısı aşağıdaki gibidir.
-
-	>>> opylogger.output('Bilgiyi verdim', category='KOMUT', date=True)
-	2019-07-10 17:48:43.486754 [OUTPUT] [KOMUT] Komut çıktısı buraya gelir
+opy-logger modülünü kullanmak en büyük desteğinizdir. Geribildirimler için muhammedcamsari@icloud.com mail adresini kullanabilirsiniz.

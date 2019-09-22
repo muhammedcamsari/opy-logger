@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="opy-logger",
-    version="1.0",
+    version="2.0",
     author="Muhammed Çamsarı",
     license='MIT',
     author_email="Muhammedcamsari@icloud.com",
@@ -17,7 +17,7 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
-        "Natural Language :: English",
+        "Natural Language :: Turkish",
         "Operating System :: OS Independent",
     ],
     py_modules=['opylogger'],
