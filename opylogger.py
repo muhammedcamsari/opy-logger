@@ -9,7 +9,7 @@ __appname__ = "Opy-Logger"
 __definition__ = "Used for simple log output."
 __copyright__ = "Copyright (c) 2019 " + __author__
 __license__ = "MIT"
-__version__ = "2.0"
+__version__ = "2.0.1"
 __status__ = "Beta"
 __email__ = "muhammedcamsari@icloud.com"
 __pgp__ = 'F294 1D36 A8C8 101B EEB0  16A7 B260 DBA5 2DAA 962A'
@@ -205,8 +205,12 @@ class log:
 			category = '[' + category + '] '
 
 		# Saat
-		if date == True:
+		if self.tarih_bilgisi == False:
+			date = ''
+
+		elif date == True:
 			date = str(time()) + ' '
+
 		else:
 			date = ''
 
