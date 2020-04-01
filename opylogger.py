@@ -9,7 +9,7 @@ __appname__ = "Opy-Logger"
 __definition__ = "Used for simple log output."
 __copyright__ = "Copyright (c) 2019 " + __author__
 __license__ = "MIT"
-__version__ = "2.0.1"
+__version__ = "2.1"
 __status__ = "Beta"
 __email__ = "muhammedcamsari@icloud.com"
 __pgp__ = 'F294 1D36 A8C8 101B EEB0  16A7 B260 DBA5 2DAA 962A'
@@ -177,7 +177,7 @@ class log:
 		print (self.modul_bilgileri)
 
 
-	def command(self, types, message, category, date):
+	def command(self, types, message, category, date, hide):
 		self.message = ''
 
 		if types == 'info':
@@ -216,27 +216,30 @@ class log:
 
 		self.message = str(date) + str(types) + str(category) + str(message)
 
-		print (self.message)
+		if hide == False:
+			print (self.message)
+		else:
+			pass 
 
 		if self.kayit_durumu == True:
 			if not self.kayit_dosyasi == None:
 				log.writeline(self.kayit_dosyasi, self.message)
 
 
-	def info(self, message, category=None, date=True):
-		log.command(self, 'info', message, category, date)
+	def info(self, message, category=None, date=True, hide=False):
+		log.command(self, 'info', message, category, date, hide)
 
-	def error(self, message, category=None, date=True):
-		log.command(self, 'error', message, category, date)
+	def error(self, message, category=None, date=True, hide=False):
+		log.command(self, 'error', message, category, date, hide)
 
-	def warning(self, message, category=None, date=True):
-		log.command(self, 'warning', message, category, date)
+	def warning(self, message, category=None, date=True, hide=False):
+		log.command(self, 'warning', message, category, date, hide)
 
-	def critical(self, message, category=None, date=True):
-		log.command(self, 'critical', message, category, date)
+	def critical(self, message, category=None, date=True, hide=False):
+		log.command(self, 'critical', message, category, date, hide)
 
-	def output(self, message, category=None, date=True):
-		log.command(self, 'output', message, category, date)
+	def output(self, message, category=None, date=True, hide=False):
+		log.command(self, 'output', message, category, date, hide)
 
-	def debug(self, message, category=None, date=True):
-		log.command(self, 'debug', message, category, date)
+	def debug(self, message, category=None, date=True, hide=False):
+		log.command(self, 'debug', message, category, date, hide)

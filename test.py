@@ -37,3 +37,6 @@ log.output("ÇIKTI", 'CODE')
 log.output("ÇIKTI")
 
 log.output("ÇIKTI", date=False)
+
+print ('----')
+log.error('Gizli Çıktı', hide=False)

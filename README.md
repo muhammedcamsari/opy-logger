@@ -27,6 +27,7 @@ Artık loglardaki tarih görünürlüğünü tek bir argüman ile belirleyebiliy
 
 Renklendirme seçeneğini de atlamadım. Artık tek bir argüman ile renklendirmeyi kapatabiliyorsunuz.
 
+2.1 sürümüyle birlikte gizlenebilen çıktılar özelliğini ekledik. Bu özellik sayesinde çıktılar ekrana yazdırılmadan log dosyasına yazılabilecek.
 
 
 # Destek Ver
